@@ -1,0 +1,119 @@
+Goal: Determine Features that can be used to describe the G-Code files
+
+
+Note: When taking data different the parameters for each layer
+IE: there a Min/Max temp for a specific layer
+
+Temperature                                                                                                                                   .
+Consistency of Max, Min, and Median of temperature for Extruder in each layer[o]
+Determines Maximum and Minimum Temperature of the Bed and Extruder for the G-File
+Check the Temperature for each Layer
+M104 - Set HotEnd Temperature (Appears Near the End, slowly decreasing From Initial Temperature)
+M109 -  Wait for HotEnd Temperature (should usually only appear start and finish) (UM3)
+
+Fan Speed [o]
+Determines the speed at which the fans blows and where they turn on and off
+M106 fan on 
+M107 fan off
+
+
+Most Suitable Filament Type based on Temperature [o]
+Determines the Minimum and Maximum Temperature of the Bed and extruder and determines a Filament Type that is most suitable to be used for this specific G-Code file.
+M104 - Set HotEnd Temperature
+M109 - Wait for HotEnd Temperature
+T0/T1 - Select New Filament
+
+
+Extruder & Movement                                                                                                                     .
+Print range
+Combination of minimum and maximum X, Y, and Z values
+Occurance of G28 - homing 
+
+Printer Head Movement Consistency [o]
+Determine the consistency of the movement of the printer head on the x and y axis.
+X - X-Axis Position
+Y - Y-Axis Position
+F - Extruder Movement Speed
+G10 - Retract
+G11 - Recover
+
+
+
+Extrusion Speed, Distance, and Amount of FIlament Extruded[o]
+Determines expected Speed and Distance Traveled by the Extruder and Amount of Filament Used.
+X - X-Axis Position
+Y - Y-Axis Position
+Z - Z-Axis Position
+E - Extrusion Amount
+F - Extruder Movement Speed
+
+Structure                                                                                                                                        .
+Number of layers and Layer Height [o]
+Every time you see a z-value change equal to the layer height, that indicates a new layer
+Z - Z-Axis Position
+E - Extrusion Amount
+G10 - Retract Filament
+G11 - Recover
+
+Maximum Print Height and Print Width [o]
+Determine the how tall the print will be based on Z-Value and Determine how wide the print will be
+X - X-Axis Position
+Y - Y-Axis Position
+Z - Z-Axis Position
+E - Extrusion Amount
+
+Infill Pattern Structures [o]
+Calculate the angle the printhead is moving to determine the type of infill structure (will not work with all types of infill structures)
+Determines Irregularity in the Typical Infill Pattern Structures in each layer, such as layer thickness and extrusion amount
+X - X-Axis Position
+Y - Y-Axis Position
+Z - Z-Axis Position
+E - Extrusion Amount
+F - Extruder Move
+
+Print Time
+ Based on distance / speed → so counting all G1 codes to total distance and speed is already set 
+
+G-Code Instruction Appearance Consistency [o]
+Determine the accuracy of how often and where certain G-code Instruction appears within a file.
+
+
+
+
+
+Types of G-Code Attacks                                                                                                                .
+Temperature Change of Extruder [X]
+Temperature Change of Bed [X]
+Change in Fan Speed [X]
+Change in Speed of Extrusion Amount [X]
+Change in Speed of Print Head [X]
+Change in Layer Thickness [X]
+Invalid parameters values  [X]
+Erratic change in x and y movement (pushing print bed out of machine)  [X]
+Gaps in printing (E0 retract filament) 
+Unexpected pausing (G4 … ) 
+Unusual M or G code combination 
+Non-stop extrusion of filament  [X]
+Inconsistent Layer Heights  [X]
+
+What can be Figured out from G-Code
+Temperature
+Layer Amount
+Filament Extrusion Amount
+Head Speed
+
+
+
+
+What In G-code needs to be consistent
+Print Head Speed
+Extrusion Amount Speed
+Temperature 
+Layer Height
+Infill Pattern Consistanctancy
+
+
+
+Temperature, fan speed, occurrence frequency, print time, range, max height/width, extrusion amount + speed
+
+To add: incorrect commands, 

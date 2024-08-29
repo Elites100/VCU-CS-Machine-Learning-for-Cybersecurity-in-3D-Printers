@@ -1,0 +1,7 @@
+numpy==1.26.3
+pandas==2.2.0
+matplotlib==3.8.4
+tensorflow==2.15.0
+tensorflow-io-gcs-filesystem==0.31.0
+tensorflow-intel==2.15.0
+scikit-learn==1.4.0

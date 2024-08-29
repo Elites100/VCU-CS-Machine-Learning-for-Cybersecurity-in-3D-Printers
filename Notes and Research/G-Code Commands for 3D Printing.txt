@@ -1,0 +1,104 @@
+G-Code Commands for 3D Printing
+
+- In a .gcode file, each command is on a separate line and starts with a specific code.
+
+G28 - Home Your Printer:
+
+- Initiates the printer's homing sequence, moving it to known positions by touching endstops.
+- Often used at the start of print files for a consistent starting point.
+- Useful for moving an axis out of the way, like when removing a finished print.
+
+Arguments:
+
+- No arguments homes all 3 axes (X, Y, and Z).
+- You can specify which axes to home by adding X, Y, or Z to the command.
+
+Examples:
+
+- `G28`: Homes all axes.
+- `G28 X Y`: Homes X and Y axes.
+- `G28 Z`: Homes only the Z axis.
+
+G90 and G91 - Positioning Mode:
+
+- G90: Absolute positioning, specify exact XYZ coordinates for movement.
+- G91: Relative positioning, specify how far to move from the current location along an axis.
+- G90 is common for absolute positioning, G91 for relative moves.
+- Use M82 or M83 for extruder (E-axis) positioning.
+
+Examples:
+
+- `G90`: Use absolute positioning.
+- `G1 X10 F3600`: Move to X=10mm on the bed.
+- `G1 X20 F3600`: Move to X=20mm.
+- `G91`: Use relative positioning.
+- `G1 X10 F3600`: Move 10mm right from the current spot.
+
+G1 - Move in a Straight Line:
+
+- G1 is a common command for 3D printing.
+- It tells the printer to move in a straight line to a specified spot.
+- You can move one or more axes and control the extruder.
+
+Arguments:
+
+- Specify X, Y, or Z values for the position.
+- Include an E value to control the extruder.
+- Use an F value to set the movement speed in mm/min.
+
+Examples:
+
+- `G1 X0 Y0 F2400`: Move to X=0 Y=0 at 2400 mm/min.
+- `G1 Z10 F1200`: Move Z-axis to Z=10mm at 1200 mm/min.
+- `G1 X30 E10 F1800`: Extrude 10mm of filament while moving to X=30 at 1800 mm/min.
+
+G92 - Set Current Position:
+
+- Use G92 to set the current position of axes, often for the E axis (filament position).
+- Overrides the current filament position for relative commands.
+- Useful at the start of each layer or before filament changes.
+
+Arguments:
+
+- Specify the absolute coordinate for axes you want to change (X, Y, Z, E).
+
+Examples:
+
+- `G92 E0`: Set the current filament position to E=0.
+- `G1 E10 F800`: Extrude 10mm of filament from the new position.
+
+M104 and M109 - Extruder Temperature:
+
+- Use M104 to start heating the extruder, and other commands can run alongside it.
+- M109 waits until the extruder reaches the desired temperature before continuing.
+- Ensures proper extruder temperature before printing.
+
+Arguments:
+
+- S value specifies the extruder temperature in Celsius.
+- T value (optional) is for multiple extruders, specifying which one to control.
+
+Examples:
+
+- `M104 S190 T0`: Heat right extruder (T0) to 190°C.
+- `G28 X0`: Home the X-axis while the extruder heats.
+- `M109 S190 T0`: Wait for right extruder (T0) to reach 190°C before continuing.
+
+M106 - Control Part Cooling Fan:
+
+- M106 sets the speed of the part cooling fan (external fan cooling the print).
+- Make sure to distinguish it from the extruder fan.
+- Useful for adjusting cooling during printing.
+
+Arguments:
+
+- S value sets the fan speed from 0 (off) to 255 (full power).
+
+Examples:
+
+- `M106 S255`: Run the fan at full speed.
+- `M106 S127`: Set the fan to around 50% power.
+- `M106 S0`: Turn off the fan.
+
+Notes taken from this article:
+https://www.simplify3d.com/resources/articles/3d-printing-gcode-tutorial/

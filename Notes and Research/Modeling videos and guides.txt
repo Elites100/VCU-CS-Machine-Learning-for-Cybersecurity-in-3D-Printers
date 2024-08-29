@@ -1,0 +1,19 @@
+Tensorflow keras model with mixed inputs: https://www.youtube.com/watch?v=4-O14gOdRso
+
+Multi output models in Tensorflow: https://www.youtube.com/watch?v=HVJAHAbdG_s
+
+tutorial on Tensorflow such as Multi-output and functional API: https://www.youtube.com/watch?v=JN08CqZKKkA
+
+Spliting databases in ML: https://www.youtube.com/watch?v=pg0Ve46HpnU
+
+Python pandas tutorial: https://www.youtube.com/watch?v=TPivN7tpdwc
+
+Tensorflow in 10 minutes: https://www.youtube.com/watch?v=6_2hzRopPbQ
+
+CSV files in tensorflow: https://www.youtube.com/watch?v=nt6sdfgtLvw
+
+Load data and train NNM: https://www.youtube.com/watch?v=Xp0LtPBcos0
+
+Merge multiple datasets: https://www.youtube.com/watch?v=oBAiEtWi4Rc
+
+Eval test datasets on network: https://www.youtube.com/watch?v=rgBu8CbH9XY\YouTube
