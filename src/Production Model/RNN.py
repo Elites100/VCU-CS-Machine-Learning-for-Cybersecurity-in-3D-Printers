@@ -9,6 +9,43 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.metrics import classification_report
 import tensorflow as tf
 
+"""
+## Function for user to add new g-code into the tested model here
+def predict_new_file(model_path, file_path):
+    # Load the trained model
+    model = load_model(model_path)
+
+    # Load the new CSV file
+    new_data = pd.read_csv(file_path)
+
+    # Drop any label column if it exists
+    if 'modified' in new_data.columns:
+        new_data = new_data.drop(columns=['modified'])
+
+    # Reshape data to match the model’s input shape
+    X_new = np.reshape(new_data.values, (new_data.shape[0], new_data.shape[1], 1))
+
+    # Predict using the trained model
+    predictions = model.predict(X_new)
+
+    # Average prediction (if it’s time-series data or multiple rows per file)
+    avg_pred = np.mean(predictions, axis=0)
+
+    # Decide class
+    predicted_class = np.argmax(avg_pred)
+
+    if predicted_class == 0:
+        print("✅ The file appears to be SAFE (Unmodified / No Virus).")
+    else:
+        print("⚠️ The file appears to be INFECTED or MODIFIED (Possible Virus).")
+
+    print(f"Raw prediction probabilities: {avg_pred}")
+"""
+
+
+
+
+
 # Function to load data from folder
 def load_data_from_folder(folder_path, label):
     data = pd.DataFrame()
@@ -121,6 +158,12 @@ def main():
     # Save the trained model
     trained_model.save('Model-1')
     print("Model saved successfully.")
+    
+    """
+    # Predict a new file
+    user_file = input("Enter the path to the new CSV file for prediction: ")
+    predict_new_file('Model-1', user_file)
+    """
 
 if __name__ == "__main__":
     main()
